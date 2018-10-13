@@ -1,0 +1,31 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/enalbed-update-if
+  docker:
+    - image: circleci/node:10-stretch
+
+jobs:
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install
+          command: yarn install
+      - run:
+          name: Jest
+          command: yarn run test
+      - save_cache:
+          paths:
+            - ~/.cache/yarn
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
