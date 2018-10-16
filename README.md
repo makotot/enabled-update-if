@@ -1,5 +1,8 @@
 # EnabledUpdateIf
 
+[![npm version](https://img.shields.io/npm/v/enabled-update-if.svg?style=flat-square)](https://www.npmjs.com/package/enabled-update-if)
+[![License](http://img.shields.io/npm/l/enabled-update-if.svg?style=flat-square)](https://github.com/makotot/enabled-update-if)
+
 > Skip unnecessary rerendering with render props.
 
 ## Why?
